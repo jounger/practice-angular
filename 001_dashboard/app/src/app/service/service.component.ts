@@ -17,17 +17,15 @@ const ELEMENT_DATA: Service[] = []
 })
 export class ServiceComponent implements OnInit {
 
-  @Input('services') services: Service;
+  @Input('services') services: Service[];
 
   displayColumns: string[] = ["type", "spent"]
 
   dataSource
 
   // Doughnut
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
-  ];
+  public doughnutChartLabels: Label[] = [];
+  public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = []
 
@@ -41,9 +39,17 @@ export class ServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = this.services
-    // this.dataSource.forEach(x => {
-    //   this.doughnutChartColors.push(x.color)
-    // })
+    this.dataSource.total = this.services.reduce((sum, val) => sum += val.spent, 0)
+    const data = []
+    const color = []
+    const type = []
+    this.services.forEach(x => {
+      data.push(x.spent)
+      color.push(x.color)
+      this.doughnutChartLabels.push(x.type)
+    })
+    this.doughnutChartData.push(data)
+    this.doughnutChartColors.push({ backgroundColor: color })
   }
 
 }

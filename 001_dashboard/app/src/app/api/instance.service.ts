@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
-export class ServiceService {
+export class InstanceService {
 
   private URI = 'http://localhost:8081/services/';  // URL to web api
 
@@ -16,8 +16,14 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   /** GET costing from the server */
-  getServices(): Observable<any[]> {
+  getInstances(): Observable<any[]> {
     return this.http.get<any[]>(this.URI)
       .pipe();
+  }
+
+  /** GET Costing by id. Will 404 if id not found */
+  getInstanceByServiceId(id: number): Observable<any> {
+    const url = `${this.URI}/${id}/instances`;
+    return this.http.get<any>(url).pipe();
   }
 }

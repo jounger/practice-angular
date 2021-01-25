@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+import { InstanceService } from '../api/instance.service';
 
 export interface Service {
   type: string;
@@ -30,18 +31,34 @@ export class InstanceComponent implements OnInit {
   public barChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public barChartData: MultiDataSet = [
     [350, 450, 120],
+    [35, 45, 12],
   ];
   public barChartType: ChartType = 'horizontalBar';
 
   public barChartOptions: any = {
     legend: {
       display: false
+    },
+    scales: {
+      xAxes: [{
+        stacked: true
+      }],
+      yAxes: [{
+        stacked: true
+      }]
     }
   }
 
-  constructor() { }
+  constructor(private instanceService: InstanceService) { }
 
   ngOnInit(): void {
+  }
+
+  getInstance(id: any) {
+    // this.instanceService.getInstanceByServiceId(id)
+    // .subscribe(services => {
+    //   this.services = services
+    // });
   }
 
 }
