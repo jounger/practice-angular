@@ -1,0 +1,26 @@
+<h2>SERVICES BREAKDOWN</h2>
+<mat-grid-list cols="3">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> NAME </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="costing">
+                <th mat-header-cell *matHeaderCellDef> COST </th>
+                <td mat-cell *matCellDef="let element"> {{element.costing}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+        </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div style="display: block;">
+            <canvas baseChart 
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>          
+    </mat-grid-tile>
+</mat-grid-list>

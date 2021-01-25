@@ -1,0 +1,38 @@
+<h2>RESERVATION COVERAGE</h2>
+<mat-grid-list cols="3">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> INSTANCE TYPE </th>
+                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+            <ng-container matColumnDef="onDemandHours">
+                <th mat-header-cell *matHeaderCellDef> ON DEMAND HOURS </th>
+                <td mat-cell *matCellDef="let element"> {{element.onDemandHours}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reservedHours">
+                <th mat-header-cell *matHeaderCellDef> RESERVED HOURS </th>
+                <td mat-cell *matCellDef="let element"> {{element.reservedHours}} </td>
+            </ng-container>
+            <ng-container matColumnDef="totalHours">
+                <th mat-header-cell *matHeaderCellDef> TOTAL HOURSE </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalHours}} </td>
+            </ng-container>
+            <ng-container matColumnDef="coverage">
+                <th mat-header-cell *matHeaderCellDef> COVERAGE </th>
+                <td mat-cell *matCellDef="let element"> {{element.coverage}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+        </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div style="display: block;">
+            <canvas baseChart 
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>          
+    </mat-grid-tile>
+</mat-grid-list>
