@@ -26,14 +26,18 @@ export class InstanceComponent implements OnInit {
 
   dataSource = ELEMENT_DATA
 
-  // Doughnut
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
-    [50, 150, 120],
-    [250, 130, 70],
+  // bar
+  public barChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public barChartData: MultiDataSet = [
+    [350, 450, 120],
   ];
-  public doughnutChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'horizontalBar';
+
+  public barChartOptions: any = {
+    legend: {
+      display: false
+    }
+  }
 
   constructor() { }
 

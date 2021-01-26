@@ -1,0 +1,32 @@
+[
+  {
+    "type": "EC2",
+    "color": "blue",
+    "spent": 2055.97,
+    "estimated": 2080
+  },
+  {
+    "type": "EFS",
+    "color": "green",
+    "spent": 0,
+    "estimated": 0
+  },
+  {
+    "type": "OTHER",
+    "color": "red",
+    "spent": 234.32,
+    "estimated": 250
+  },
+  {
+    "type": "S3",
+    "color": "orange",
+    "spent": 10.69,
+    "estimated": 15
+  },
+  {
+    "type": "SUPPORT",
+    "color": "brown",
+    "spent": 0,
+    "estimated": 0
+  }
+]

@@ -1,0 +1,6 @@
+table {
+  width: 100%;
+  .mat-cell:nth-child(n+2) {
+    text-align: right;
+  }
+}

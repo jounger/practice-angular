@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
+import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 export interface Service {
-  name: string;
+  type: string;
   color: string;
-  costing: number;
+  spent: number;
 }
 
-const ELEMENT_DATA: Service[] = [
-  {name: "EC2", color: "blue", costing: 31293},
-]
+const ELEMENT_DATA: Service[] = []
 
 @Component({
   selector: 'app-service',
@@ -19,22 +17,33 @@ const ELEMENT_DATA: Service[] = [
 })
 export class ServiceComponent implements OnInit {
 
-  displayColumns: string[] = ["name", "costing"]
+  @Input('services') services: Service;
 
-  dataSource = ELEMENT_DATA
+  displayColumns: string[] = ["type", "spent"]
+
+  dataSource
 
   // Doughnut
   public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100],
-    [50, 150, 120],
-    [250, 130, 70],
   ];
   public doughnutChartType: ChartType = 'doughnut';
+  public doughnutChartColors: Color[] = []
+
+  public doughnutChartOptions: any = {
+    legend: {
+      display: false
+    }
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.dataSource = this.services
+    // this.dataSource.forEach(x => {
+    //   this.doughnutChartColors.push(x.color)
+    // })
   }
 
 }

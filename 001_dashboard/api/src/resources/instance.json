@@ -1,0 +1,20 @@
+[
+  {
+    "type": "T2.MEDIUM",
+    "onDemandHours": 1021.22,
+    "reservedHours": 0.5,
+    "reserveHours": 1,
+    "pricePerHour": 0.08,
+    "createdDate": "20/11/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "T2.NANO",
+    "onDemandHours": 2184.93,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  }
+]

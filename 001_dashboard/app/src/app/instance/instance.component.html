@@ -1,7 +1,7 @@
 <h2>RESERVATION COVERAGE</h2>
-<mat-grid-list cols="3">
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-grid-list cols="5">
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> INSTANCE TYPE </th>
                 <td mat-cell *matCellDef="let element"> {{element.type}} </td>
@@ -26,13 +26,14 @@
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
         <div style="display: block;">
-            <canvas baseChart 
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType">
+            <canvas baseChart
+              [data]="barChartData"
+              [labels]="barChartLabels"
+              [chartType]="barChartType"
+              [options]="barChartOptions">
             </canvas>
-          </div>          
+          </div>
     </mat-grid-tile>
 </mat-grid-list>
