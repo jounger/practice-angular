@@ -3,4 +3,27 @@ table {
   .mat-cell:nth-child(n+2), .mat-header-cell:nth-child(n+2) {
     text-align: right;
   }
+  .mat-cell:nth-child(2) {
+    color: #c0422b;
+  }
+  .mat-cell:nth-child(3) {
+    color: #abc187
+  }
+}
+
+.mat-row:nth-child(even){
+  background-color: #f6f6f8;
+}
+.mat-row:nth-child(odd){
+  background-color:#ffffff;
+}
+
+tr.mat-header-row, tr.mat-row, tr.mat-footer-row {
+  height: 30px;
+}
+
+.title {
+  color: #85bed3;
+  margin: 0;
+  margin-top: 30px;
 }

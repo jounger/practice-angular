@@ -6,8 +6,28 @@ table {
 }
 
 .mat-row:nth-child(even){
-  background-color: #e4f0ec;
+  background-color: #f6f6f8;
 }
 .mat-row:nth-child(odd){
   background-color:#ffffff;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.box {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.title {
+  color: #85bed3;
+  margin: 0;
+  margin-top: 30px;
+}
+
+tr.mat-header-row, tr.mat-row, tr.mat-footer-row {
+  height: 30px;
 }

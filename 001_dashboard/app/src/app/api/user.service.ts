@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
-export class InstanceService {
+export class UserService {
 
-  private URI = 'http://localhost:8081/services';  // URL to web api
+  private URI = 'http://localhost:8081/user';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,14 +16,8 @@ export class InstanceService {
   constructor(private http: HttpClient) { }
 
   /** GET costing from the server */
-  getInstances(): Observable<any[]> {
+  getCurrentUser(): Observable<any[]> {
     return this.http.get<any[]>(this.URI)
       .pipe();
-  }
-
-  /** GET Costing by id. Will 404 if id not found */
-  getInstanceByServiceId(id: any): Observable<any> {
-    const url = `${this.URI}/${id}/instances`;
-    return this.http.get<any>(url).pipe();
   }
 }

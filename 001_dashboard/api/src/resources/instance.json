@@ -16,5 +16,59 @@
     "pricePerHour": 0.095,
     "createdDate": "25/12/2020T00:00",
     "service": "EC2"
+  },
+  {
+    "type": "T2.LARGE",
+    "onDemandHours": 1283.9,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "M4.LARGE",
+    "onDemandHours": 5.4,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "T2.MICRO",
+    "onDemandHours": 5818.26,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "M3.MEDIUM",
+    "onDemandHours": 2.22,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "T2.SMALL",
+    "onDemandHours": 2754.13,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "EC2"
+  },
+  {
+    "type": "T2.SMALL",
+    "onDemandHours": 204.13,
+    "reservedHours": 0,
+    "reserveHours": 0,
+    "pricePerHour": 0.095,
+    "createdDate": "25/12/2020T00:00",
+    "service": "OTHER"
   }
 ]

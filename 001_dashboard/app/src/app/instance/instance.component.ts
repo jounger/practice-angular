@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
-import { InstanceService } from '../api/instance.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ChartDataSets, ChartType } from 'chart.js';
+import { MultiDataSet, Label, Color } from 'ng2-charts';
 
-export interface Service {
+export interface Instance {
   type: string;
   onDemandHours: number;
   reservedHours: number;
   totalHours: number;
   coverage: number;
 }
-
-const ELEMENT_DATA: Service[] = [
-  {type: "T2.Medium", onDemandHours: 1071.22, reservedHours: 0, totalHours: 1071.22, coverage: 0},
-]
-
 
 @Component({
   selector: 'app-instance',
@@ -23,19 +17,27 @@ const ELEMENT_DATA: Service[] = [
 })
 export class InstanceComponent implements OnInit {
 
-  displayColumns: string[] = ["name", "onDemandHours", "reservedHours", "totalHours", "coverage"]
+  @Input('instances') instances: Instance[];
 
-  dataSource = ELEMENT_DATA
+  displayColumns: string[] = ["type", "onDemandHours", "reservedHours", "totalHours", "coverage"]
+
+  dataSource
 
   // bar
-  public barChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public barChartData: MultiDataSet = [
-    [350, 450, 120],
-    [35, 45, 12],
+  public barChartLabels: Label[] = [];
+  public barChartData: ChartDataSets[] = [
+    { data: [], label: 'On Demand Hours' },
+    { data: [], label: 'Reserved Hours' }
   ];
   public barChartType: ChartType = 'horizontalBar';
 
+  public barChartColors: Color[] = [
+    {backgroundColor: "#c0422b"},
+    {backgroundColor: "#abc187"}
+  ]
+
   public barChartOptions: any = {
+    responsive: true,
     legend: {
       display: false
     },
@@ -49,16 +51,20 @@ export class InstanceComponent implements OnInit {
     }
   }
 
-  constructor(private instanceService: InstanceService) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.dataSource = this.instances
+
+    const onDemandHours = []
+    const reservedHours = []
+    this.instances.forEach(x => {
+      this.barChartLabels.push(x.type.toLocaleLowerCase())
+      this.barChartData[0].data.push(x.onDemandHours)
+      this.barChartData[1].data.push(x.reservedHours)
+    })
   }
 
-  getInstance(id: any) {
-    // this.instanceService.getInstanceByServiceId(id)
-    // .subscribe(services => {
-    //   this.services = services
-    // });
-  }
+
 
 }

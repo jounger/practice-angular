@@ -1,0 +1,31 @@
+.mat-card {
+  text-align: center;
+  box-shadow: none;
+}
+
+.mat-card-subtitle {
+  font-size: 12px;
+}
+
+.highlight {
+  color: #f57c72;
+}
+
+.mat-expanded .mat-expansion-panel-header-title .material-icons{
+  transform: rotate(90deg);
+  margin-right: 10px;
+}
+
+.mat-expansion-panel {
+  box-shadow: none;
+}
+
+.mat-expansion-panel-header {
+  border-bottom: 1px solid #ddddde;
+  border-radius: unset;
+  height: 35px;
+}
+
+.mt-3 {
+  margin-top: 30px;
+}

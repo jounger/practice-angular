@@ -1,20 +1,25 @@
-<h2>SERVICES BREAKDOWN</h2>
-<mat-grid-list cols="5">
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
+<h3 class="title">SERVICES BREAKDOWN</h3>
+<mat-grid-list cols="5" rowHeight="50px">
+    <mat-grid-tile [colspan]="3" [rowspan]="4">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
             <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef hidden> NAME </th>
-                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                <th mat-header-cell *matHeaderCellDef> NAME </th>
+                <td mat-cell *matCellDef="let element" (click)="select(element)">
+                  <div class="flex-box">
+                    <div class="box" [style.backgroundColor]="element.color"></div>
+                    <div>{{element.type}}</div>
+                  </div>
+                </td>
             </ng-container>
             <ng-container matColumnDef="spent">
-                <th mat-header-cell *matHeaderCellDef hidden> COST </th>
-                <td mat-cell *matCellDef="let element"> {{element.spent}} </td>
+                <th mat-header-cell *matHeaderCellDef> COST </th>
+                <td mat-cell *matCellDef="let element"> {{formatMoney(element.spent)}} </td>
             </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayColumns" hidden></tr>
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-grid-tile [colspan]="2" [rowspan]="4">
         <div style="display: block;">
             <canvas baseChart
               [data]="doughnutChartData"
@@ -26,3 +31,4 @@
           </div>
     </mat-grid-tile>
 </mat-grid-list>
+<app-instance *ngIf="instances.length > 0" [instances]="instances"></app-instance>

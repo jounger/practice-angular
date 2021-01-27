@@ -1,8 +1,8 @@
-<h2>RESERVATION COVERAGE</h2>
-<mat-grid-list cols="5">
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
+<h3 class="title">RESERVATION COVERAGE</h3>
+<mat-grid-list cols="5" rowHeight="50px">
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="type">
                 <th mat-header-cell *matHeaderCellDef> INSTANCE TYPE </th>
                 <td mat-cell *matCellDef="let element"> {{element.type}} </td>
             </ng-container>
@@ -20,19 +20,20 @@
             </ng-container>
             <ng-container matColumnDef="coverage">
                 <th mat-header-cell *matHeaderCellDef> COVERAGE </th>
-                <td mat-cell *matCellDef="let element"> {{element.coverage}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.coverage}}% </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
         </table>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-grid-tile [colspan]="2" [rowspan]="5">
         <div style="display: block;">
             <canvas baseChart
-              [data]="barChartData"
+              [datasets]="barChartData"
               [labels]="barChartLabels"
               [chartType]="barChartType"
-              [options]="barChartOptions">
+              [options]="barChartOptions"
+              [colors]="barChartColors">
             </canvas>
           </div>
     </mat-grid-tile>

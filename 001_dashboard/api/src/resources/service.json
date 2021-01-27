@@ -1,31 +1,31 @@
 [
   {
     "type": "EC2",
-    "color": "blue",
+    "color": "#2077b4",
     "spent": 2055.97,
     "estimated": 2080
   },
   {
     "type": "EFS",
-    "color": "green",
+    "color": "#2d9f2c",
     "spent": 0,
     "estimated": 0
   },
   {
     "type": "OTHER",
-    "color": "red",
+    "color": "#c0422b",
     "spent": 234.32,
     "estimated": 250
   },
   {
     "type": "S3",
-    "color": "orange",
+    "color": "#fa822a",
     "spent": 10.69,
     "estimated": 15
   },
   {
     "type": "SUPPORT",
-    "color": "brown",
+    "color": "#df9c18",
     "spent": 0,
     "estimated": 0
   }

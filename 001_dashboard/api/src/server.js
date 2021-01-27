@@ -22,14 +22,16 @@ app.use(function (req, res, next) {
 });
 
 // GET BILLING LIST
-app.get('/billing/:month', function (req, res) {
+app.get('/user', function (req, res) {
+  const data = fs.readFileSync(__dirname + "/resources/" + "user.json", 'utf8');
+  const user = JSON.parse(data)
+  res.end(JSON.stringify(user))
+})
+
+// GET BILLING LIST
+app.get('/billing/lastmonth', function (req, res) {
   const data = fs.readFileSync(__dirname + "/resources/" + "billing.json", 'utf8');
   const billings = JSON.parse(data)
-  billings.forEach(x => {
-    const d = new Date(x.paymentDate)
-    const now = new Date()
-
-  })
   res.end(JSON.stringify(billings))
 })
 
