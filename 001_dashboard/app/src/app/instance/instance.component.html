@@ -27,13 +27,14 @@
         </table>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="5">
-        <div style="display: block;">
+        <div style="display: block;height: 100%; width: 100%;">
             <canvas baseChart
               [datasets]="barChartData"
               [labels]="barChartLabels"
               [chartType]="barChartType"
               [options]="barChartOptions"
-              [colors]="barChartColors">
+              [colors]="barChartColors"
+              style="height: 100%;">
             </canvas>
           </div>
     </mat-grid-tile>

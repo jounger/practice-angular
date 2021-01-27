@@ -1,4 +1,5 @@
-<mat-expansion-panel hideToggle>
+<div class="container">
+  <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="material-icons">play_arrow</span>
@@ -7,32 +8,33 @@
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
-        <mat-grid-list cols="4" rowHeight="4:1" class="mt-3">
-            <mat-grid-tile>
-                <mat-card>
-                    <mat-card-title>{{formatMoney(monthToDate)}}</mat-card-title>
-                    <mat-card-subtitle>MONTH TO DATE</mat-card-subtitle>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card>
-                    <mat-card-title>{{formatMoney(estimatedSpend)}}</mat-card-title>
-                    <mat-card-subtitle>ESIMATED SPEND</mat-card-subtitle>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card>
-                    <mat-card-title>{{formatMoney(lastMonth)}}</mat-card-title>
-                    <mat-card-subtitle>LAST MONTH</mat-card-subtitle>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card>
-                    <mat-card-title class="highlight">{{formatMoney(changeFromLastMonth)}}</mat-card-title>
-                    <mat-card-subtitle>CHANGE FROM LAST MONTH</mat-card-subtitle>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <app-service [services]="services"></app-service>
+      <mat-grid-list cols="4" rowHeight="4:1" class="mt-3">
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-title>{{formatMoney(monthToDate)}}</mat-card-title>
+            <mat-card-subtitle>MONTH TO DATE</mat-card-subtitle>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-title>{{formatMoney(estimatedSpend)}}</mat-card-title>
+            <mat-card-subtitle>ESIMATED SPEND</mat-card-subtitle>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-title>{{formatMoney(lastMonth)}}</mat-card-title>
+            <mat-card-subtitle>LAST MONTH</mat-card-subtitle>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-title class="highlight">{{formatMoney(changeFromLastMonth)}}</mat-card-title>
+            <mat-card-subtitle>CHANGE FROM LAST MONTH</mat-card-subtitle>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <app-service [services]="services"></app-service>
     </ng-template>
-</mat-expansion-panel>
+  </mat-expansion-panel>
+</div>

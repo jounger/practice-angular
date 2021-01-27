@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BillingService } from '../api/billing.service';
 import { ServiceService } from '../api/service.service';
 import { UserService } from '../api/user.service';
+import { Service } from '../service/service.component';
 
 @Component({
   selector: 'app-costing',
@@ -12,8 +13,8 @@ export class CostingComponent implements OnInit {
 
   constructor(private serviceService: ServiceService, private billingService: BillingService, private userService: UserService) { }
 
-  user
-  services: any[]
+  user: any
+  services: Service[]
   monthToDate = 0
   estimatedSpend = 0
   lastMonth = 0
@@ -44,7 +45,6 @@ export class CostingComponent implements OnInit {
   getUser() {
     this.userService.getCurrentUser().subscribe(user => {
       this.user = user
-      console.log(user)
     })
   }
 

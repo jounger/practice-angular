@@ -11,9 +11,14 @@
   color: #f57c72;
 }
 
+.material-icons {
+  color: #818286;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
 .mat-expanded .mat-expansion-panel-header-title .material-icons{
   transform: rotate(90deg);
-  margin-right: 10px;
 }
 
 .mat-expansion-panel {
@@ -28,4 +33,10 @@
 
 .mt-3 {
   margin-top: 30px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
 }

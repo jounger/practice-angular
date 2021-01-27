@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
-import { MultiDataSet, Label, Color } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 
 export interface Instance {
   type: string;
@@ -21,7 +21,7 @@ export class InstanceComponent implements OnInit {
 
   displayColumns: string[] = ["type", "onDemandHours", "reservedHours", "totalHours", "coverage"]
 
-  dataSource
+  dataSource: any
 
   // bar
   public barChartLabels: Label[] = [];
@@ -37,16 +37,25 @@ export class InstanceComponent implements OnInit {
   ]
 
   public barChartOptions: any = {
+    maintainAspectRatio: false,
     responsive: true,
     legend: {
       display: false
     },
     scales: {
       xAxes: [{
-        stacked: true
+        stacked: true,
+        gridLines: {
+            drawBorder: false,
+            drawOnChartArea: false,
+        }
       }],
       yAxes: [{
-        stacked: true
+        stacked: true,
+        gridLines: {
+            drawBorder: false,
+            drawOnChartArea: false,
+        }
       }]
     }
   }
@@ -55,16 +64,10 @@ export class InstanceComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = this.instances
-
-    const onDemandHours = []
-    const reservedHours = []
     this.instances.forEach(x => {
       this.barChartLabels.push(x.type.toLocaleLowerCase())
       this.barChartData[0].data.push(x.onDemandHours)
       this.barChartData[1].data.push(x.reservedHours)
     })
   }
-
-
-
 }

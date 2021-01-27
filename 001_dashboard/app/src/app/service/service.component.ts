@@ -9,6 +9,7 @@ export interface Service {
   type: string;
   color: string;
   spent: number;
+  estimated: number;
 }
 
 const ELEMENT_DATA: Service[] = []
@@ -22,11 +23,11 @@ export class ServiceComponent implements OnInit {
 
   @Input('services') services: Service[];
 
-  user
+  user: any
 
   displayColumns: string[] = ["type", "spent"]
 
-  dataSource
+  dataSource: any
 
   serviceSelected: Service
 
@@ -77,7 +78,7 @@ export class ServiceComponent implements OnInit {
     return formatter.format(value)
   }
 
-  select(value) {
+  select(value: Service) {
     this.instances = []
     this.serviceSelected = value
     if (this.serviceSelected != null) {
