@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CostingComponent } from './costing/costing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router'
 
 import { ChartsModule } from 'ng2-charts';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -13,23 +14,40 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ServiceComponent } from './service/service.component';
 import {MatTableModule} from '@angular/material/table';
 import { InstanceComponent } from './instance/instance.component';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: CostingComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     CostingComponent,
     ServiceComponent,
-    InstanceComponent
+    InstanceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
     ChartsModule,
     MatExpansionModule,
     MatCardModule,
     MatGridListModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
