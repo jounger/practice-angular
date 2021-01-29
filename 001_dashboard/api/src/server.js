@@ -1,6 +1,14 @@
 var express = require('express');
+var bodyParser = require('body-parser')
 var app = express();
 var fs = require("fs");
+var db = require('./db_connection');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
 
@@ -20,6 +28,23 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+// GET BILLING LIST
+app.post('/user/login', async function (req, res) {
+  const username = req.body.username
+  const password = req.body.password
+  const user = await db.getUserbyUsername(username)
+  if (user != null && user.password == password) {
+    res.status(200).end(JSON.stringify(user))
+  } else {
+    res.status(400).send("Username or password is incorrect")
+  }
+})
+
+// GET BILLING LIST
+app.get('/user/request-account', function (req, res) {
+  // const user = db.getUserbyUsername()
+})
 
 // GET BILLING LIST
 app.get('/user', function (req, res) {

@@ -3,7 +3,7 @@
   <p>
     <mat-form-field appearance="outline" MatFormFieldControl>
       <mat-label>Username</mat-label>
-      <input matInput placeholder="john">
+      <input matInput placeholder="john" [(ngModel)]="username">
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Hint</mat-hint>
     </mat-form-field>
@@ -11,12 +11,15 @@
   <p>
     <mat-form-field appearance="outline" MatFormFieldControl>
       <mat-label>Password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
   </p>
-  <button mat-raised-button (click)="login()">Login</button>
+  <p>
+    <button mat-raised-button (click)="login()">Login</button>
+  </p>
+  <p (click)="request()">Request account</p>
 </div>

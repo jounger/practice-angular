@@ -6,6 +6,7 @@ import { CostingComponent } from './costing/costing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router'
+import { FormsModule } from '@angular/forms';
 
 import { ChartsModule } from 'ng2-charts';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -19,6 +20,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,13 +35,15 @@ const routes: Routes = [
     CostingComponent,
     ServiceComponent,
     InstanceComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    FormsModule,
     ChartsModule,
     MatExpansionModule,
     MatCardModule,
@@ -48,6 +53,7 @@ const routes: Routes = [
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

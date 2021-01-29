@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { User } from '../login/login.component';
 
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +18,11 @@ export class UserService {
 
   /** GET costing from the server */
   getCurrentUser(): Observable<any[]> {
-    return this.http.get<any[]>(this.URI)
+    return this.http.get<any[]>(this.URI, this.httpOptions)
       .pipe();
+  }
+
+  login(user: User): Observable<any> {
+    return this.http.post<any>(this.URI + "/login", user, this.httpOptions)
   }
 }
